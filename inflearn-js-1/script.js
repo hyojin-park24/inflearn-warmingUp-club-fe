@@ -28,13 +28,18 @@ const getContent = ({name, imgUrl, descripton, price}) => {
 };
 
 const renderMenuList = menu => {
+    const renderList = menu.map(item => getContent(item));
+
+    menuList.replaceChildren(...renderList);
+};
+
+const getRenderData = e => {
     const filter = e.target.id.replace('select-','');
     const renderData = 
         filter == 'all' ? data : data.filter(item => item.type == filter);
 
     return renderData;
-}
-;
+};
 
 nvaigation.addEventListener('change', e => {
     renderMenuList(getRenderData(e));
