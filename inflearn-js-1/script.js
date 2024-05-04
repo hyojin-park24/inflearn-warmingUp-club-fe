@@ -1,6 +1,6 @@
 import data from './data.js';
 
-const nvaigation = document.querySelector('.navigioan');
+const navigation = document.querySelector('.navigation');
 const menuList = document.querySelector('.menu-list');
 const menuItem = document.querySelector('.menu-item');
 
@@ -13,16 +13,16 @@ const setImageAttributes = (imangeElement, src, altText) => {
     imangeElement.alt = altText;
 };
 
-const getContent = ({name, imgUrl, descripton, price}) => {
+const getContent = ({name, imgUrl, description, price}) => {
     const content = menuItem.cloneNode(true);
     const [imgElement, textContainer] = content.children;
     const [titleElement, priceElement, descptionElement] = 
         textContainer.children;
 
         setElementContent(titleElement, name);
-        setImageAttributes(imgElement, imgUrl, '${name} 이미지');
-        setElementContent(priceElement, '${price}원');
-        setElementContent(descptionElement, descripton);
+        setImageAttributes(imgElement, imgUrl, `${name} 이미지`);
+        setElementContent(priceElement, `${price}원`);
+        setElementContent(descptionElement, description);
 
         return content;
 };
@@ -41,7 +41,7 @@ const getRenderData = e => {
     return renderData;
 };
 
-nvaigation.addEventListener('change', e => {
+navigation.addEventListener('change', e => {
     renderMenuList(getRenderData(e));
 });
 
